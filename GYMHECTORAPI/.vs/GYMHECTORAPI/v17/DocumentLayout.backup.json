@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\models\\gtmhector.db\\gymhectorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\models\\gtmhector.db\\gymhectorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\dataaccess\\accountdo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\dataaccess\\accountdo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\bussiness\\accountbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\bussiness\\accountbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\dataaccess\\iaccountdo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\dataaccess\\iaccountdo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\bussiness\\iaccountbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\bussiness\\iaccountbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\entities\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\entities\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|c:\\users\\usuario\\source\\repos\\gymhectorapi\\gymhectorapi\\entities\\authorizationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C89FEBB-C52E-4E86-8CDD-6D2A9A33F10F}|GYMHECTORAPI\\GYMHECTORAPI.csproj|solutionrelative:gymhectorapi\\entities\\authorizationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Entities\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Entities\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Entities\\LoginResponse.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Entities\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T19:06:46.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthorizationRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Entities\\AuthorizationRequest.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Entities\\AuthorizationRequest.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Entities\\AuthorizationRequest.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Entities\\AuthorizationRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T19:06:26.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\appsettings.json",
+              "RelativeToolTip": "GYMHECTORAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-22T18:58:44.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Program.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Program.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:37:00.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAMwC4AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:34:33.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GymHectorContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Models\\GTMHECTOR.DB\\GymHectorContext.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Models\\GTMHECTOR.DB\\GymHectorContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Models\\GTMHECTOR.DB\\GymHectorContext.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Models\\GTMHECTOR.DB\\GymHectorContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:19:17.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAccountDO.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\DataAccess\\IAccountDO.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\DataAccess\\IAccountDO.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\DataAccess\\IAccountDO.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\DataAccess\\IAccountDO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:05:13.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountDO.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\DataAccess\\AccountDO.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\DataAccess\\AccountDO.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\DataAccess\\AccountDO.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\DataAccess\\AccountDO.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwDYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:04:54.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IAccountBO.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Bussiness\\IAccountBO.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Bussiness\\IAccountBO.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Bussiness\\IAccountBO.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Bussiness\\IAccountBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:02:50.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountBO.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Bussiness\\AccountBO.cs",
+              "RelativeDocumentMoniker": "GYMHECTORAPI\\Bussiness\\AccountBO.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\GYMHECTORAPI\\GYMHECTORAPI\\Bussiness\\AccountBO.cs",
+              "RelativeToolTip": "GYMHECTORAPI\\Bussiness\\AccountBO.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwBUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:02:04.883Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

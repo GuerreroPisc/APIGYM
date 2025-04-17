@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "GYMHECTORAPI.Controllers.AccountController",
+    "Method": "IniciarSesion",
+    "RelativePath": "Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "auth",
+        "Type": "GYMHECTORAPI.Entities.AuthorizationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
