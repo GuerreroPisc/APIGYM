@@ -1,5 +1,25 @@
 [
   {
+    "ContainingType": "GYMHECTORAPI.Controllers.ModuloController",
+    "Method": "ObtenerModulosPorUsuario",
+    "RelativePath": "api/Modulo/Modulos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GYMHECTORAPI.Controllers.UsuarioController",
+    "Method": "ListarMaestros",
+    "RelativePath": "api/Usuario/listarMaestros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GYMHECTORAPI.Controllers.AccountController",
     "Method": "IniciarSesion",
     "RelativePath": "Login",

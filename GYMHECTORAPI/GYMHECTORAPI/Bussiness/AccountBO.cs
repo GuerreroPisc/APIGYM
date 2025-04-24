@@ -48,7 +48,7 @@ namespace GYMHECTORAPI.Bussiness
 
             var claims = new ClaimsIdentity();
             claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, idUsuario));
-            claims.AddClaim(new Claim("Usuername", username));
+            claims.AddClaim(new Claim("Username", username));
             //claims.AddClaim(new Claim("rol", rol.CodRol));
 
             var credencialesToken = new SigningCredentials(

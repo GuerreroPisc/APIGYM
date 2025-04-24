@@ -20,7 +20,7 @@ builder.Services.AddDbContext<GymHectorContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-var keyTokenBytes = Encoding.ASCII.GetBytes("TMS-32-char-key-2024202320240000");
+var keyTokenBytes = Encoding.ASCII.GetBytes("GYMHECTOR-32-char-key-2024202320240000");
 builder.Services.AddAuthentication(config =>
 {
     config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,6 +52,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie();
 builder.Services.AddScoped<IAccountBO, AccountBO>();
 builder.Services.AddScoped<IAccountDO, AccountDO>();
+builder.Services.AddScoped<IModuloBO, ModuloBO>();
+builder.Services.AddScoped<IModuloDO, ModuloDO>();
+builder.Services.AddScoped<IUsuarioBO, UsuarioBO>();
+builder.Services.AddScoped<IUsuarioDO, UsuarioDO>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

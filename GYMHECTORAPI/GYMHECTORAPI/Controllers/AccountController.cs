@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
@@ -53,7 +51,7 @@ namespace GYMHECTORAPI.Controllers
                 return Ok(resultado);
 
             }
-            catch (Exception ex)
+            catch (Exception  ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
             }

@@ -35,6 +35,30 @@
           }
         }
       }
+    },
+    "/api/Modulo/Modulos": {
+      "get": {
+        "tags": [
+          "Modulo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/listarMaestros": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

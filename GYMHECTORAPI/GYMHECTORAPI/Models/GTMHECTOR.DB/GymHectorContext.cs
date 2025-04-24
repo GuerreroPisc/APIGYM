@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace GYMHECTORAPI.Models.GTMHECTOR.DB
 {
@@ -14,10 +12,16 @@ namespace GYMHECTORAPI.Models.GTMHECTOR.DB
         {
         }
         public DbSet<SP_PRUEBA_TOKEN_Result> MpSp_AutenticarUsuario { get; set; }
+        public DbSet<ModuloRolUsuarioObtener_Result> MpSp_ModuloRolUsuarioObtener { get; set; }
+        public DbSet<MaestroDatosUsuario_Result> MpSp_MaestroDatosUsuario { get; set; }        
+        public DbSet<HorarioRegistrosUsuario_Result> MpSp_HorarioRegistrosUsuario { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SP_PRUEBA_TOKEN_Result>().HasNoKey().ToView(null);
+            modelBuilder.Entity<ModuloRolUsuarioObtener_Result>().HasNoKey().ToView(null);
+            modelBuilder.Entity<MaestroDatosUsuario_Result>().HasNoKey().ToView(null);
+            modelBuilder.Entity<HorarioRegistrosUsuario_Result>().HasNoKey().ToView(null);
             OnModelCreatingPartial(modelBuilder);
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
