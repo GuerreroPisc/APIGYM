@@ -4,8 +4,8 @@
     {
         public int idHorarioRegistrado { get; set; }
         public string NombreClase { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public string NombreProfesor { get; set; }
     }
 }

@@ -14,8 +14,8 @@
         public int idRol { get; set; }
         public string NombreCompleto { get; set; }
         public string TipoSuscripcion { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public int DiasRestantes { get; set; }
         public bool FlgSuscripcionActiva { get; set; }
     }
@@ -23,8 +23,8 @@
     {
         public int idHorarioRegistrado { get; set; }
         public string NombreClase { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public string NombreProfesor { get; set; }
     }
 }
