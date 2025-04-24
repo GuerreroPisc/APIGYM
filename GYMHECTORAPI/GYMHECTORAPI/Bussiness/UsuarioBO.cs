@@ -61,5 +61,58 @@ namespace GYMHECTORAPI.Bussiness
             }
 
         }
+
+        public async Task<ListarHorariosGenerales> ListarHorariosGenerales(int idUsuario)
+        {
+            try
+            {
+                var response = new ListarHorariosGenerales();
+
+                response.data = new DataHorarios();
+                var listaHorarios = await _usuarioDO.ListaHorariosGenerales(idUsuario);
+
+                if (listaHorarios != null && listaHorarios.Count > 0)
+                {
+                    var dataOrdenada = listaHorarios
+                            .GroupBy(x => x.nombreClase)
+                            .Select(g => new ListaHorariosGeneral
+                            {
+                                nombreClase = g.Key,
+                                horariosClase = g.Select(h => new ListaHorariosClase
+                                {
+                                    idHorario = h.idHorario,
+                                    FechaInicio = h.FechaInicio,
+                                    FechaFin = h.FechaFin,
+                                    NombreProfesor = h.NombreProfesor,
+                                    FlagDiponible = h.FlagDiponible,
+                                    Descripcion = h.Descripcion
+                                }).ToList()
+                            })
+                            .OrderBy(x => x.nombreClase)
+                            .ToList();
+
+                    response.codigoRes = HttpStatusCode.OK;
+                    response.mensajeRes = "Horarios obtenidos correctamente.";
+                    response.data.ListaHorarios = dataOrdenada;
+                }
+                else
+                {
+                    response.codigoRes = HttpStatusCode.BadRequest;
+                    response.mensajeRes = "No se pudo obtener los horarios.";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{ListarHorariosGenerales} Error: " + ex.ToString());
+                return new ListarHorariosGenerales
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "Error interno al obtener los horarios. " + ex.ToString()
+                };
+            }
+
+        }
     }
 }

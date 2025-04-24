@@ -74,5 +74,53 @@ namespace GYMHECTORAPI.Controllers
                 DisposeResources();
             }
         }
+
+        [HttpGet]
+        [Route("listarHorariosGenerales")]
+        public async Task<IActionResult> ListarHorariosGenerales()
+        {
+            try
+            {
+                var principal = User;
+                var validToken = HelperToken.LeerToken(principal);
+                if (validToken.codigo != 1)
+                {
+                    return Unauthorized(new { Message = "No se pudo validar el token." });
+                }
+
+                var idUsuario = Convert.ToInt32(principal.FindFirst(ClaimTypes.NameIdentifier).Value);
+                var respuesta = await _iUsuarioBO.ListarHorariosGenerales(idUsuario);
+                _log.LogInformation("{ListarHorariosGenerales} Response: " + JsonSerializer.Serialize(respuesta));
+                if (respuesta != null)
+                {
+                    if (respuesta.codigoRes == HttpStatusCode.OK)
+                    {
+                        return Ok(new { Message = respuesta.mensajeRes, data = respuesta.data });
+                    }
+                    else if (respuesta.codigoRes == HttpStatusCode.BadRequest)
+                    {
+                        return BadRequest(new { MessageError = respuesta.mensajeRes, MessageUser = respuesta.mensajeRes });
+
+                    }
+                    else
+                    {
+                        return StatusCode((int)respuesta.codigoRes, new { MessageError = respuesta.mensajeRes, MessageUser = "Error. Vuelva a intentarlo." });
+                    }
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de listar horarios generales.", MessageUser = "Error. Vuelva a intentarlo." });
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{ListarHorariosGenerales} Error: " + ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de listar horarios generales.." + ex.ToString(), MessageUser = "Error al cargar. Vuelva a intentarlo." });
+            }
+            finally
+            {
+                DisposeResources();
+            }
+        }
     }
 }

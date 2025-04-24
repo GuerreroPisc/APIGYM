@@ -55,5 +55,22 @@ namespace GYMHECTORAPI.DataAccess
             }
             return response;
         }
+
+        public async Task<List<ListaHorariosGeneral_Result>> ListaHorariosGenerales(int idUsuario)
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuario };
+
+            var response = _context.MpSp_HorariosGenerales
+                .FromSqlRaw("EXEC MpSp_ListarHorariosGenerales " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListaHorariosGeneral_Result>();
+            }
+            return response;
+        }
     }
 }

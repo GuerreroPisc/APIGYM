@@ -15,6 +15,8 @@ namespace GYMHECTORAPI.Models.GTMHECTOR.DB
         public DbSet<ModuloRolUsuarioObtener_Result> MpSp_ModuloRolUsuarioObtener { get; set; }
         public DbSet<MaestroDatosUsuario_Result> MpSp_MaestroDatosUsuario { get; set; }        
         public DbSet<HorarioRegistrosUsuario_Result> MpSp_HorarioRegistrosUsuario { get; set; }
+        public DbSet<ListaHorariosGeneral_Result> MpSp_HorariosGenerales { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +24,7 @@ namespace GYMHECTORAPI.Models.GTMHECTOR.DB
             modelBuilder.Entity<ModuloRolUsuarioObtener_Result>().HasNoKey().ToView(null);
             modelBuilder.Entity<MaestroDatosUsuario_Result>().HasNoKey().ToView(null);
             modelBuilder.Entity<HorarioRegistrosUsuario_Result>().HasNoKey().ToView(null);
+            modelBuilder.Entity<ListaHorariosGeneral_Result>().HasNoKey().ToView(null);
             OnModelCreatingPartial(modelBuilder);
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
