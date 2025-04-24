@@ -6,5 +6,6 @@ namespace GYMHECTORAPI.Bussiness
     {
         Task<ListarMaestrosResponse> ListarMaestros(int idUsuario);
         Task<ListarHorariosGenerales> ListarHorariosGenerales(int idUsuario);
+        Task<RegistrarReservaResponse> registrarReserva(int idUsuarioEdita, RegistraReservaRequest req);
     }
 }

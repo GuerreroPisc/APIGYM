@@ -3,6 +3,7 @@ using GYMHECTORAPI.Models.GTMHECTOR.DB;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Net;
 
 namespace GYMHECTORAPI.DataAccess
 {
@@ -71,6 +72,52 @@ namespace GYMHECTORAPI.DataAccess
                 return new List<ListaHorariosGeneral_Result>();
             }
             return response;
+        }
+
+        public async Task<RegistrarReservaResponse> registrarReserva(int idUsuarioEdita, int idHorario, int flagImpedimentos)
+        {
+            try
+            {
+                var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuarioEdita };
+                var idhorarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdHorario", Value = idHorario };
+                var flagImpedimentosParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintFlagImpedimentos", Value = flagImpedimentos };
+                var idUsuarioRegistraParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuarioRegistro", Value = idUsuarioEdita };
+
+                var respuesta = _context.MpSp_RegistrarReserva
+                    .FromSqlRaw("EXEC MpSp_RegistrarReservaUsuario " +
+                    " @pintIdUsuario, " +
+                    " @pintIdHorario, " +
+                    " @pintFlagImpedimentos, " +
+                    " @pintIdUsuarioRegistro ",
+                    idUsuarioParam,
+                    idhorarioParam,
+                    flagImpedimentosParam,
+                    idUsuarioRegistraParam
+                ).AsEnumerable().Select(x => new RegistrarReservaResponse()
+                {
+                    codigoRes = (HttpStatusCode)x.codigo.GetValueOrDefault(),
+                    mensajeRes = x.descripcion
+                }).FirstOrDefault();
+
+                if (respuesta != null)
+                {
+                    return respuesta;
+                }
+                return new RegistrarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se obtuvo respuesta al editar los datos del usuario."
+                };
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{EditarUsuario} Error: " + ex.ToString());
+                return new RegistrarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se pudo editar los datos del usuario. " + ex.ToString()
+                };
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using GYMHECTORAPI.DataAccess;
 using GYMHECTORAPI.Entities.Usuario;
+using System.Data;
 using System.Net;
 
 namespace GYMHECTORAPI.Bussiness
@@ -110,6 +111,24 @@ namespace GYMHECTORAPI.Bussiness
                 {
                     codigoRes = HttpStatusCode.InternalServerError,
                     mensajeRes = "Error interno al obtener los horarios. " + ex.ToString()
+                };
+            }
+
+        }
+
+        public async Task<RegistrarReservaResponse> registrarReserva(int idUsuarioEdita, RegistraReservaRequest req)
+        {
+            var idUsuario = idUsuarioEdita;
+            if (idUsuario > 0 && req.intIdHorario > 0)
+            {
+                return await _usuarioDO.registrarReserva(idUsuario, req.intIdHorario, req.intFlagImpedimento);
+            }
+            else
+            {
+                return new RegistrarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.BadRequest,
+                    mensajeRes = "El usuario o el horario no es válido."
                 };
             }
 
