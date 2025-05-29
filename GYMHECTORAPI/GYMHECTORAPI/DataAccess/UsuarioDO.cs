@@ -119,5 +119,56 @@ namespace GYMHECTORAPI.DataAccess
                 };
             }
         }
+
+        public async Task<List<ListarPosiblesAsistencias_Result>> CapacidadHorariosIA(int idUsuario)
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuario };
+
+            var response = _context.MpSp_PosiblesAsistencias
+                .FromSqlRaw("EXEC MpSp_ListarPosiblesAsistencias " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListarPosiblesAsistencias_Result>();
+            }
+            return response;
+        }
+
+        public async Task<List<ListarAsistencias_Result>> AsistenciasIA(int idUsuario)
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuario };
+
+            var response = _context.MpSp_Asistencias
+                .FromSqlRaw("EXEC MpSp_ListarAsistencias " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListarAsistencias_Result>();
+            }
+            return response;
+        }
+
+        public async Task<List<ListarReservas_Result>> ReservasIA(int idUsuario)
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuario };
+
+            var response = _context.MpSp_ReservasIA
+                .FromSqlRaw("EXEC MpSp_ListarReservasIA " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListarReservas_Result>();
+            }
+            return response;
+        }
     }
 }

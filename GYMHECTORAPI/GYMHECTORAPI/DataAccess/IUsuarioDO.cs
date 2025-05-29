@@ -9,5 +9,8 @@ namespace GYMHECTORAPI.DataAccess
         Task<List<HorarioRegistrosUsuario_Result>> ListarHorariosRegistrados(int idUsuario);
         Task<List<ListaHorariosGeneral_Result>> ListaHorariosGenerales(int idUsuario);
         Task<RegistrarReservaResponse> registrarReserva(int idUsuarioEdita, int idHorario, int flagImpedimentos);
+        Task<List<ListarPosiblesAsistencias_Result>> CapacidadHorariosIA(int idUsuario);
+        Task<List<ListarAsistencias_Result>> AsistenciasIA(int idUsuario);
+        Task<List<ListarReservas_Result>> ReservasIA(int idUsuario);
     }
 }
