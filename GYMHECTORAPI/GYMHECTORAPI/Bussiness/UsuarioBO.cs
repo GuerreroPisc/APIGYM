@@ -133,5 +133,7 @@ namespace GYMHECTORAPI.Bussiness
             }
 
         }
+
+
     }
 }
