@@ -140,7 +140,7 @@ namespace GYMHECTORAPI.Controllers
 
                 var idUsuario = Convert.ToInt32(principal.FindFirst(ClaimTypes.NameIdentifier).Value);
                 var respuesta = await _iUsuarioBO.registrarReserva(idUsuario, req);
-                _log.LogInformation("{EditarUsuario} Response: " + JsonSerializer.Serialize(respuesta));
+                _log.LogInformation("{registrarReserva} Response: " + JsonSerializer.Serialize(respuesta));
                 if (respuesta != null)
                 {
                     if (respuesta.codigoRes == HttpStatusCode.OK)
@@ -155,13 +155,13 @@ namespace GYMHECTORAPI.Controllers
                 }
                 else
                 {
-                    return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de editar usuario.", MessageUser = "Error. Vuelva a intentarlo." });
+                    return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de registrar reserva.", MessageUser = "Error. Vuelva a intentarlo." });
                 }
             }
             catch (Exception ex)
             {
-                _log.LogError("{EditarUsuario} Error: " + ex.ToString());
-                return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de editar usuario.", MessageUser = "Error al editar. Vuelva a intentarlo." });
+                _log.LogError("{registrarReserva} Error: " + ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de registrar reserva.", MessageUser = "Error al registrar. Vuelva a intentarlo." });
             }
             finally
             {
@@ -210,6 +210,97 @@ namespace GYMHECTORAPI.Controllers
             {
                 _log.LogError("{CapacidadHorariosIA} Error: " + ex.ToString());
                 return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de mostrar capacidad de aforo aproximado." + ex.ToString(), MessageUser = "Error al cargar. Vuelva a intentarlo." });
+            }
+            finally
+            {
+                DisposeResources();
+            }
+        }
+
+        [HttpPost]
+        [Route("editarReserva")]
+        public async Task<IActionResult> editarReserva(EditarReservaRequest req)
+        {
+            try
+            {
+                _log.LogInformation("{registrarReserva} Request: " + JsonSerializer.Serialize(req));
+                var principal = User;
+                var validToken = HelperToken.LeerToken(principal);
+                if (validToken.codigo != 1)
+                {
+                    return Unauthorized(new { Message = "No se pudo validar el token." });
+                }
+
+                var idUsuario = Convert.ToInt32(principal.FindFirst(ClaimTypes.NameIdentifier).Value);
+                var respuesta = await _iUsuarioBO.editarReserva(idUsuario, req);
+                _log.LogInformation("{EditarUsuario} Response: " + JsonSerializer.Serialize(respuesta));
+                if (respuesta != null)
+                {
+                    if (respuesta.codigoRes == HttpStatusCode.OK)
+                    {
+                        return Ok(new { Message = respuesta.mensajeRes });
+                    }
+                    else if (respuesta.codigoRes == HttpStatusCode.BadRequest || respuesta.codigoRes == HttpStatusCode.UnprocessableContent)
+                    {
+                        return StatusCode((int)respuesta.codigoRes, new { MessageError = respuesta.mensajeRes, MessageUser = respuesta.mensajeRes });
+                    }
+                    return StatusCode((int)respuesta.codigoRes, new { MessageError = respuesta.mensajeRes, MessageUser = "Error. Vuelva a intentarlo." });
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de editar reserva.", MessageUser = "Error. Vuelva a intentarlo." });
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{editarReserva} Error: " + ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de editar reserva.", MessageUser = "Error al editar. Vuelva a intentarlo." });
+            }
+            finally
+            {
+                DisposeResources();
+            }
+        }
+
+
+        [HttpPost]
+        [Route("cancelarReserva")]
+        public async Task<IActionResult> cancelarReserva(CancelarReservaRequest req)
+        {
+            try
+            {
+                _log.LogInformation("{registrarReserva} Request: " + JsonSerializer.Serialize(req));
+                var principal = User;
+                var validToken = HelperToken.LeerToken(principal);
+                if (validToken.codigo != 1)
+                {
+                    return Unauthorized(new { Message = "No se pudo validar el token." });
+                }
+
+                var idUsuario = Convert.ToInt32(principal.FindFirst(ClaimTypes.NameIdentifier).Value);
+                var respuesta = await _iUsuarioBO.cancelarReserva(idUsuario, req);
+                _log.LogInformation("{cancelarReserva} Response: " + JsonSerializer.Serialize(respuesta));
+                if (respuesta != null)
+                {
+                    if (respuesta.codigoRes == HttpStatusCode.OK)
+                    {
+                        return Ok(new { Message = respuesta.mensajeRes });
+                    }
+                    else if (respuesta.codigoRes == HttpStatusCode.BadRequest || respuesta.codigoRes == HttpStatusCode.UnprocessableContent)
+                    {
+                        return StatusCode((int)respuesta.codigoRes, new { MessageError = respuesta.mensajeRes, MessageUser = respuesta.mensajeRes });
+                    }
+                    return StatusCode((int)respuesta.codigoRes, new { MessageError = respuesta.mensajeRes, MessageUser = "Error. Vuelva a intentarlo." });
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de cancelar reserva.", MessageUser = "Error. Vuelva a intentarlo." });
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{cancelarReserva} Error: " + ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError, new { MessageError = "Error interno en el servicio de cancelar reserva.", MessageUser = "Error al cancelar. Vuelva a intentarlo." });
             }
             finally
             {

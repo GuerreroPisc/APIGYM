@@ -106,7 +106,7 @@ namespace GYMHECTORAPI.DataAccess
                 return new RegistrarReservaResponse()
                 {
                     codigoRes = HttpStatusCode.InternalServerError,
-                    mensajeRes = "No se obtuvo respuesta al editar los datos del usuario."
+                    mensajeRes = "No se obtuvo respuesta al registrar la reserva."
                 };
             }
             catch (Exception ex)
@@ -115,7 +115,7 @@ namespace GYMHECTORAPI.DataAccess
                 return new RegistrarReservaResponse()
                 {
                     codigoRes = HttpStatusCode.InternalServerError,
-                    mensajeRes = "No se pudo editar los datos del usuario. " + ex.ToString()
+                    mensajeRes = "No se pudo registrar la reserva. " + ex.ToString()
                 };
             }
         }
@@ -169,6 +169,98 @@ namespace GYMHECTORAPI.DataAccess
                 return new List<ListarReservas_Result>();
             }
             return response;
+        }
+
+        public async Task<EditarReservaResponse> editarReserva(int idUsuarioEdita, int idHorario, int idHorarioRegistro, int flagImpedimentos)
+        {
+            try
+            {
+                var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuarioEdita };
+                var idhorarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdHorario", Value = idHorario };
+                var idhorarioRegistroParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdHorarioRegistro", Value = idHorarioRegistro };
+                var flagImpedimentosParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintFlagImpedimentos", Value = flagImpedimentos };
+                var idUsuarioRegistraParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuarioRegistro", Value = idUsuarioEdita };
+
+                var respuesta = _context.MpSp_EditarReserva
+                    .FromSqlRaw("EXEC MpSp_EditarReservaUsuario " +
+                    " @pintIdUsuario, " +
+                    " @pintIdHorario, " +
+                    " @pintIdHorarioRegistro, " +
+                    " @pintFlagImpedimentos, " +
+                    " @pintIdUsuarioRegistro ",
+                    idUsuarioParam,
+                    idhorarioParam,
+                    idhorarioRegistroParam,
+                    flagImpedimentosParam,
+                    idUsuarioRegistraParam
+                ).AsEnumerable().Select(x => new EditarReservaResponse()
+                {
+                    codigoRes = (HttpStatusCode)x.codigo.GetValueOrDefault(),
+                    mensajeRes = x.descripcion
+                }).FirstOrDefault();
+
+                if (respuesta != null)
+                {
+                    return respuesta;
+                }
+                return new EditarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se obtuvo respuesta al editar la reserva."
+                };
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{EditarUsuario} Error: " + ex.ToString());
+                return new EditarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se pudo editar la reserva. " + ex.ToString()
+                };
+            }
+        }
+
+        public async Task<CancelarReservaResponse> cancelarReserva(int idUsuarioEdita, int idHorario)
+        {
+            try
+            {
+                var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuarioEdita };
+                var idhorarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdHorario", Value = idHorario };
+                var idUsuarioRegistraParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuarioRegistro", Value = idUsuarioEdita };
+
+                var respuesta = _context.MpSp_CancelarReserva
+                    .FromSqlRaw("EXEC MpSp_CancelarReservaUsuario " +
+                    " @pintIdUsuario, " +
+                    " @pintIdHorario, " +
+                    " @pintIdUsuarioRegistro ",
+                    idUsuarioParam,
+                    idhorarioParam,
+                    idUsuarioRegistraParam
+                ).AsEnumerable().Select(x => new CancelarReservaResponse()
+                {
+                    codigoRes = (HttpStatusCode)x.codigo.GetValueOrDefault(),
+                    mensajeRes = x.descripcion
+                }).FirstOrDefault();
+
+                if (respuesta != null)
+                {
+                    return respuesta;
+                }
+                return new CancelarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se obtuvo respuesta al cancelar la reserva."
+                };
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{EditarUsuario} Error: " + ex.ToString());
+                return new CancelarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "No se pudo cancelar la reserva. " + ex.ToString()
+                };
+            }
         }
     }
 }

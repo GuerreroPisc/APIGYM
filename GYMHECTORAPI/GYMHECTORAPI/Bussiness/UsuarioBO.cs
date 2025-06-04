@@ -282,5 +282,41 @@ namespace GYMHECTORAPI.Bussiness
             }
         }
 
+        public async Task<EditarReservaResponse> editarReserva(int idUsuarioEdita, EditarReservaRequest req)
+        {
+            var idUsuario = idUsuarioEdita;
+            if (idUsuario > 0 && req.intIdHorario > 0)
+            {
+                return await _usuarioDO.editarReserva(idUsuario, req.intIdHorario, req.intIdHorarioRegistrar, req.intFlagImpedimento);
+            }
+            else
+            {
+                return new EditarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.BadRequest,
+                    mensajeRes = "El usuario o el horario no es válido."
+                };
+            }
+
+        }
+
+        public async Task<CancelarReservaResponse> cancelarReserva(int idUsuarioEdita, CancelarReservaRequest req)
+        {
+            var idUsuario = idUsuarioEdita;
+            if (idUsuario > 0 && req.intIdHorario > 0)
+            {
+                return await _usuarioDO.cancelarReserva(idUsuario, req.intIdHorario);
+            }
+            else
+            {
+                return new CancelarReservaResponse()
+                {
+                    codigoRes = HttpStatusCode.BadRequest,
+                    mensajeRes = "El usuario o el horario no es válido."
+                };
+            }
+
+        }
+
     }
 }
