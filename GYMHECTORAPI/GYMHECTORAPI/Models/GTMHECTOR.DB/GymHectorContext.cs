@@ -21,8 +21,9 @@ namespace GYMHECTORAPI.Models.GTMHECTOR.DB
         public DbSet<ListarAsistencias_Result> MpSp_Asistencias { get; set; }
         public DbSet<ListarReservas_Result> MpSp_ReservasIA { get; set; }
         public DbSet<EditarReserva_Result> MpSp_EditarReserva { get; set; }
-        public DbSet<CancelarReserva_Result> MpSp_CancelarReserva { get; set; }
+        public DbSet<ListaAsistenciaDashboard_Result> MpSp_ListaAsistenciaDashboard { get; set; }
 
+        public DbSet<CancelarReserva_Result> MpSp_CancelarReserva { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,6 +39,7 @@ namespace GYMHECTORAPI.Models.GTMHECTOR.DB
             modelBuilder.Entity<ListarReservas_Result>().HasNoKey().ToView(null);
             modelBuilder.Entity<EditarReserva_Result>().HasNoKey().ToView(null);
             modelBuilder.Entity<CancelarReserva_Result>().HasNoKey().ToView(null);
+            modelBuilder.Entity<ListaAsistenciaDashboard_Result>().HasNoKey().ToView(null);
             OnModelCreatingPartial(modelBuilder);
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

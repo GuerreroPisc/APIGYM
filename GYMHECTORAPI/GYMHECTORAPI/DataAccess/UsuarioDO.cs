@@ -262,5 +262,22 @@ namespace GYMHECTORAPI.DataAccess
                 };
             }
         }
+
+        public async Task<List<ListaAsistenciaDashboard_Result>> ListarAsistenciasDashboard(int idUsuario)
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = idUsuario };
+
+            var response = _context.MpSp_ListaAsistenciaDashboard
+                .FromSqlRaw("EXEC MpSp_ListarAsistenciaDashboard " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListaAsistenciaDashboard_Result>();
+            }
+            return response;
+        }
     }
 }

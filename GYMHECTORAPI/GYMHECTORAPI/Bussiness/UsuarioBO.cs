@@ -318,5 +318,44 @@ namespace GYMHECTORAPI.Bussiness
 
         }
 
+        public async Task<ListarAsistenciasDashboardResponse> ListarAsistenciasDashboard(int idUsuario)
+        {
+            try
+            {
+                var response = new ListarAsistenciasDashboardResponse();
+
+                response.data = new DataAsistencia();
+                var listaAsistencia = await _usuarioDO.ListarAsistenciasDashboard(idUsuario);
+
+                if (listaAsistencia != null && listaAsistencia.Count > 0)
+                {
+                    response.data.listaAsistencia = listaAsistencia.Select(x => new ListaAsistenciaGeneral()
+                    {
+                        FechaAsistencia = x.FechaAsistencia
+                    }).ToList();
+
+                    response.codigoRes = HttpStatusCode.OK;
+                    response.mensajeRes = "Horarios obtenidos correctamente.";
+                }
+                else
+                {
+                    response.codigoRes = HttpStatusCode.BadRequest;
+                    response.mensajeRes = "No se pudo obtener las asistencias.";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{ListarAsistenciasDashboard} Error: " + ex.ToString());
+                return new ListarAsistenciasDashboardResponse
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "Error interno al obtener las asistencias. " + ex.ToString()
+                };
+            }
+
+        }
+
     }
 }

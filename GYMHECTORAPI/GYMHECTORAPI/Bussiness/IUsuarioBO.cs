@@ -10,5 +10,6 @@ namespace GYMHECTORAPI.Bussiness
         Task<HorarioPredicciones> CapacidadHorariosIA(int idUsuario);
         Task<EditarReservaResponse> editarReserva(int idUsuarioEdita, EditarReservaRequest req);
         Task<CancelarReservaResponse> cancelarReserva(int idUsuarioEdita, CancelarReservaRequest req);
+        Task<ListarAsistenciasDashboardResponse> ListarAsistenciasDashboard(int idUsuario);
     }
 }
