@@ -357,5 +357,47 @@ namespace GYMHECTORAPI.Bussiness
 
         }
 
+        public async Task<ListaEnvioCorreoReservaResponse> ListarEnvioCorreo()
+        {
+            try
+            {
+                var response = new ListaEnvioCorreoReservaResponse();
+
+                response.data = new DataEnvioCorreo();
+                var listaEnvio = await _usuarioDO.ListarEnvioCorreo();
+
+                if (listaEnvio != null && listaEnvio.Count > 0)
+                {
+                    response.data.listaEnvioCorreo = listaEnvio.Select(x => new ListaDataEnvioCorreo()
+                    {
+                        Nombre = x.Nombre,
+                        NombreCurso = x.NombreCurso,
+                        HoraInicio = x.HoraInicio,
+                        HoraFin = x.HoraFin
+                    }).ToList();
+
+                    response.codigoRes = HttpStatusCode.OK;
+                    response.mensajeRes = "Lista correo obtenidos correctamente.";
+                }
+                else
+                {
+                    response.codigoRes = HttpStatusCode.BadRequest;
+                    response.mensajeRes = "No se pudo obtener la lista de correo.";
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _log.LogError("{ListarEnvioCorreo} Error: " + ex.ToString());
+                return new ListaEnvioCorreoReservaResponse
+                {
+                    codigoRes = HttpStatusCode.InternalServerError,
+                    mensajeRes = "Error interno al obtener la lista de correo. " + ex.ToString()
+                };
+            }
+
+        }
+
     }
 }

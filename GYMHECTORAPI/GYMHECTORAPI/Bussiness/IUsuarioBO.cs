@@ -11,5 +11,6 @@ namespace GYMHECTORAPI.Bussiness
         Task<EditarReservaResponse> editarReserva(int idUsuarioEdita, EditarReservaRequest req);
         Task<CancelarReservaResponse> cancelarReserva(int idUsuarioEdita, CancelarReservaRequest req);
         Task<ListarAsistenciasDashboardResponse> ListarAsistenciasDashboard(int idUsuario);
+        Task<ListaEnvioCorreoReservaResponse> ListarEnvioCorreo();
     }
 }

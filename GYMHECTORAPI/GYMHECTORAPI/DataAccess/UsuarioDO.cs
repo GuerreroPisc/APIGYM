@@ -279,5 +279,22 @@ namespace GYMHECTORAPI.DataAccess
             }
             return response;
         }
+
+        public async Task<List<ListaEnvioCorreoReserva_Result>> ListarEnvioCorreo()
+        {
+            var idUsuarioParam = new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@pintIdUsuario", Value = 1 };
+
+            var response = _context.MpSp_ListaEnvioCorreoReserva
+                .FromSqlRaw("EXEC MpSp_ListarEnvioCorreo " +
+                " @pintIdUsuario ",
+                idUsuarioParam
+            ).ToList();
+
+            if (response == null)
+            {
+                return new List<ListaEnvioCorreoReserva_Result>();
+            }
+            return response;
+        }
     }
 }

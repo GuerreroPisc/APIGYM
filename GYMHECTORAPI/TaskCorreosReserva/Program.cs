@@ -41,32 +41,34 @@ class Program
 
         // Obtener datos del usuario
         var usuarioBO = serviceProvider.GetRequiredService<IUsuarioBO>();
-        var resultado = await usuarioBO.ListarMaestros(5);
+        var resultado = await usuarioBO.ListarEnvioCorreo();
 
         // Obtener configuración SMTP
         var smtpOptions = serviceProvider.GetRequiredService<Microsoft.Extensions.Options.IOptions<SmtpCorreoOptions>>().Value;
 
         // Enviar correo
-        using (var mail = new MailMessage())
+        foreach (var item in resultado.data.listaEnvioCorreo)
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            using (var mail = new MailMessage())
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            string bodyCorreo = @"
+                string bodyCorreo = $@"
                                 <body style='font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;'>
                                   <div style='max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
-                                    <h2 style='color: #2c3e50;'>🚴‍♂️ ¡Hola Augusto!</h2>
+                                    <h2 style='color: #2c3e50;'>¡Hola {item.Nombre}!</h2>
                                     <p style='font-size: 16px; color: #333333;'>
                                       Te recordamos que tienes una clase programada para el <strong>día de mañana</strong>:
                                     </p>
                                     <table style='width: 100%; margin-top: 20px; border-collapse: collapse;'>
                                       <tr>
                                         <td style='padding: 10px; background-color: #f0f0f0; border-radius: 5px;'>
-                                          <strong>🏋️ Clase:</strong> Bicicleta
+                                          <strong>🏋️ Clase:</strong> {item.NombreCurso}
                                         </td>
                                       </tr>
                                       <tr>
                                         <td style='padding: 10px; background-color: #f0f0f0; border-radius: 5px; margin-top: 10px;'>
-                                          <strong>🕓 Horario:</strong> 4:00 PM a 5:00 PM
+                                          <strong>🕓 Horario:</strong> {item.HoraInicio} a {item.HoraFin}
                                         </td>
                                       </tr>
                                     </table>
@@ -79,21 +81,23 @@ class Program
                                   </div>
                                 </body>";
 
-            mail.To.Add(new MailAddress("jguerreropisco@outlook.com"));
-            mail.From = new MailAddress(smtpOptions.CorreoRemitente, smtpOptions.NombreRemitente);
-            mail.Subject = "Prepárate para pedalear 🚴 Mañana 4:00 PM en Gym Hector";
-            mail.Body = bodyCorreo;
-            mail.IsBodyHtml = true;
-            mail.Priority = MailPriority.Normal;
+                mail.To.Add(new MailAddress("jguerreropisco@outlook.com"));
+                mail.From = new MailAddress(smtpOptions.CorreoRemitente, smtpOptions.NombreRemitente);
+                mail.Subject = $"📣 Prepárate para entrenar Mañana {item.HoraInicio} en Gym Hector";
+                mail.Body = bodyCorreo;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.Normal;
 
-            using (var client = new SmtpClient("smtp.office365.com"))
-            {
-                client.Port = smtpOptions.PuertoSmtp;
-                client.Credentials = new NetworkCredential(smtpOptions.CorreoPrincipal, smtpOptions.PasswordCorreo);
-                client.EnableSsl = true;
-                client.Send(mail);
+                using (var client = new SmtpClient("smtp.office365.com"))
+                {
+                    client.Port = smtpOptions.PuertoSmtp;
+                    client.Credentials = new NetworkCredential(smtpOptions.CorreoPrincipal, smtpOptions.PasswordCorreo);
+                    client.EnableSsl = true;
+                    client.Send(mail);
+                }
+                break;
             }
-        }
+        }        
     }
 
     public class SmtpCorreoOptions

@@ -15,5 +15,7 @@ namespace GYMHECTORAPI.DataAccess
         Task<EditarReservaResponse> editarReserva(int idUsuarioEdita, int idHorario, int idHorarioRegistrar, int flagImpedimentos);
         Task<CancelarReservaResponse> cancelarReserva(int idUsuarioEdita, int idHorario); 
         Task<List<ListaAsistenciaDashboard_Result>> ListarAsistenciasDashboard(int idUsuario);
+        Task<List<ListaEnvioCorreoReserva_Result>> ListarEnvioCorreo();
+        
     }
 }
